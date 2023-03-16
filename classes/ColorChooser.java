@@ -28,7 +28,7 @@ public class ColorChooser
     
     
     // use the color chooser to pick the color
-    color = JColorChooser.showDialog(frame,"Pick a color",color);
+    color = JColorChooser.showDialog(frame,"Choose a color",Color.BLUE);
     
     return color;
   }

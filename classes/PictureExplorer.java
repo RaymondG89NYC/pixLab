@@ -79,6 +79,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
   private JMenuItem twoHundred;
   /** 500% zoom level */
   private JMenuItem fiveHundred;
+  private JMenuItem oneThousand;
   
   /** The picture being explored */
   private DigitalPicture picture;
@@ -157,6 +158,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     hundredFifty = new JMenuItem("150%");
     twoHundred = new JMenuItem("200%");
     fiveHundred = new JMenuItem("500%");
+    oneThousand = new JMenuItem("1000%");
     
     // add the action listeners
     twentyFive.addActionListener(this);
@@ -175,6 +177,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     zoomMenu.add(hundredFifty);
     zoomMenu.add(twoHundred);
     zoomMenu.add(fiveHundred);
+    zoomMenu.add(oneThousand);
     menuBar.add(zoomMenu);
     
     // set the menu bar to this menu
@@ -687,6 +690,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     hundredFifty.setEnabled(true);
     twoHundred.setEnabled(true);
     fiveHundred.setEnabled(true);
+    oneThousand.setEnabled(true);
   }
   
   /**
@@ -750,6 +754,12 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
       enableZoomItems();
       fiveHundred.setEnabled(false);
     }
+    if(a.getActionCommand().equals("1000%"))
+    {
+      this.zoom(10.0);
+      enableZoomItems();
+      oneThousand.setEnabled(false);
+    }
   }
   
   
@@ -800,7 +810,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
    */
   public static void main( String args[])
   {
-    Picture pix = new Picture("beach.jpg");
+    Picture pix = new Picture("images/kitten2.jpg");
     pix.explore();
   }
   
